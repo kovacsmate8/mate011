@@ -56,7 +56,7 @@
 
   body {
     background: var(--void);
-    /* CSS-Only Grain Texture (megtartjuk a monitor-zaj hatásért) */
+    /* CSS-Only Grain Texture */
     background-image: repeating-linear-gradient(
       0deg,
       transparent,
@@ -141,7 +141,7 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     NAVIGATION
+     NAVIGATION — MOBIL FIX
   ═══════════════════════════════════════════════════════════ */
   nav {
     position: fixed;
@@ -153,11 +153,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 var(--sp-7);
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-base);
     z-index: 1000;
+    /* Mobil gap fix */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
   }
 
   .nav-logo {
@@ -492,7 +496,7 @@
   }
 
   /* ═══════════════════════════════════════════════════════════
-     ABOUT
+     ABOUT — INTERAKTÍV VERZIÓ
   ═══════════════════════════════════════════════════════════ */
   #about {
     border-top: 1px solid var(--border-base);
@@ -528,6 +532,69 @@
     max-width: 560px;
   }
 
+  /* INTERAKTÍV PRINCIPLE CARDS */
+  .about-principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
+    margin-top: var(--sp-5);
+  }
+
+  .principle-card {
+    border: 1px solid var(--border-base);
+    background: var(--surface-1);
+    backdrop-filter: blur(12px);
+    padding: var(--sp-4);
+    cursor: pointer;
+    transition: all 0.2s var(--ease-precision);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principle-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(242,238,0,0.03), transparent);
+    transition: left 0.3s var(--ease-precision);
+  }
+
+  .principle-card:hover::before {
+    left: 100%;
+  }
+
+  .principle-card:hover {
+    border-color: var(--border-accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+  }
+
+  .principle-number {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-yellow);
+    margin-bottom: var(--sp-2);
+  }
+
+  .principle-title {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-1);
+  }
+
+  .principle-desc {
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+
+  /* META ITEMS — INTERAKTÍV */
   .about-meta {
     display: flex;
     flex-direction: column;
@@ -539,6 +606,30 @@
     border: 1px solid var(--border-base);
     background: var(--surface-1);
     backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s var(--ease-precision);
+    cursor: default;
+  }
+
+  .meta-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-yellow);
+    transition: width 0.3s var(--ease-precision);
+  }
+
+  .meta-item:hover {
+    border-color: var(--border-accent);
+    background: var(--surface-2);
+  }
+
+  .meta-item:hover::after {
+    width: 100%;
   }
 
   .meta-key {
@@ -548,6 +639,11 @@
     color: var(--text-muted);
     text-transform: uppercase;
     margin-bottom: 4px;
+    transition: color 0.2s var(--ease-precision);
+  }
+
+  .meta-item:hover .meta-key {
+    color: var(--accent-yellow);
   }
 
   .meta-val {
@@ -555,6 +651,34 @@
     font-size: 14px;
     line-height: 1.4;
     color: var(--text-primary);
+  }
+
+  /* PROGRESS BAR VIZUALIZÁCIÓ */
+  .meta-item.with-progress {
+    padding-bottom: var(--sp-4);
+  }
+
+  .meta-progress {
+    margin-top: var(--sp-2);
+    height: 2px;
+    background: var(--border-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .meta-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--accent-cyan);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s var(--ease-precision);
+  }
+
+  .meta-item:hover .meta-progress-fill {
+    transform: scaleX(1);
   }
 
   /* ═══════════════════════════════════════════════════════════
@@ -973,16 +1097,25 @@
   ═══════════════════════════════════════════════════════════ */
   @media (max-width: 768px) {
     section { padding: var(--sp-7) var(--sp-4); }
-    nav { padding: 0 var(--sp-4); }
+    nav { 
+      padding: 0 var(--sp-4);
+      height: 56px;
+      /* Extra mobil stabilizáció */
+      background: rgba(0,0,0,0.98);
+    }
     .nav-links { display: none; }
+    .nav-status {
+      font-size: 9px;
+      gap: var(--sp-1);
+    }
 
     .hero-grid { grid-template-columns: 1fr; }
     .hero-right { display: none; }
 
     .about-grid { grid-template-columns: 1fr; }
+    .about-principles { grid-template-columns: 1fr; }
     .about-meta {
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
     }
 
     .bento-grid { grid-template-columns: 1fr; }
@@ -1006,6 +1139,7 @@
     .card-lg, .card-sm, .card-md, .card-md2 {
       grid-column: span 1;
     }
+    .about-principles { grid-template-columns: 1fr; }
   }
 
   /* ═══════════════════════════════════════════════════════════
@@ -1088,7 +1222,7 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT — INTERAKTÍV VERZIÓ -->
 <section id="about">
   <div class="section-label">ABOUT</div>
   <div class="about-grid reveal">
@@ -1096,23 +1230,61 @@
       <h2>Nem navigációt építünk.<br>Hanem <em>útvonalat</em><br>a komplexitáson keresztül.</h2>
       <p>UI/UX tervezőként a munkám nem a felületek dekorálása. A munkám az, hogy a bonyolult rendszereket átláthatóvá, a döntéseket evidenssé tegyem — a design eszközével.</p>
       <p>Az egyszerűség nem hiány. Döntés. Minden elem, ami megmarad, az ott van, mert ott kell lennie. Ami felesleges, az nem létezik.</p>
+      
+      <!-- DESIGN PRINCIPLES GRID -->
+      <div class="about-principles">
+        <div class="principle-card">
+          <div class="principle-number">01</div>
+          <div class="principle-title">Clarity Over Decoration</div>
+          <div class="principle-desc">A vizuális nyelv nem dísz. Eszköz a kommunikációhoz.</div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">02</div>
+          <div class="principle-title">Systems, Not Screens</div>
+          <div class="principle-desc">Nem oldalakat, hanem működő ökoszisztémákat építünk.</div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">03</div>
+          <div class="principle-title">Precision is Standard</div>
+          <div class="principle-desc">Az 8px grid nem opció. Matematikai pontosság.</div>
+        </div>
+        <div class="principle-card">
+          <div class="principle-number">04</div>
+          <div class="principle-title">Speed = Strategy</div>
+          <div class="principle-desc">Minden milliszekundum döntési előny a felhasználónak.</div>
+        </div>
+      </div>
     </div>
+
+    <!-- META ITEMS — INTERAKTÍV PROGRESS BARS -->
     <div class="about-meta">
-      <div class="meta-item">
+      <div class="meta-item with-progress">
         <div class="meta-key">Location</div>
         <div class="meta-val">Budapest, HU</div>
+        <div class="meta-progress">
+          <div class="meta-progress-fill"></div>
+        </div>
       </div>
-      <div class="meta-item">
+      <div class="meta-item with-progress">
         <div class="meta-key">Focus</div>
         <div class="meta-val">Product Design</div>
+        <div class="meta-progress">
+          <div class="meta-progress-fill"></div>
+        </div>
       </div>
-      <div class="meta-item">
+      <div class="meta-item with-progress">
         <div class="meta-key">Tools</div>
         <div class="meta-val">Figma · Framer</div>
+        <div class="meta-progress">
+          <div class="meta-progress-fill"></div>
+        </div>
       </div>
-      <div class="meta-item">
+      <div class="meta-item with-progress">
         <div class="meta-key">Status</div>
         <div class="meta-val" style="color: var(--accent-yellow);">Available</div>
+        <div class="meta-progress">
+          <div class="meta-progress-fill" style="background: var(--accent-yellow);"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1199,7 +1371,6 @@
       </div>
     </div>
 
-    <!-- NEW PROJECT 05 -->
     <div class="project-card card-sm reveal">
       <div class="card-visual" style="height: 140px;">
         <svg width="100%" height="100%" viewBox="0 0 600 140" preserveAspectRatio="xMidYMid slice">
@@ -1227,7 +1398,6 @@
       </div>
     </div>
 
-    <!-- NEW PROJECT 06 -->
     <div class="project-card card-lg reveal">
       <div class="card-visual">
         <svg width="100%" height="100%" viewBox="0 0 600 160" preserveAspectRatio="xMidYMid slice">
@@ -1412,7 +1582,7 @@
   animateRing();
 
   // Cursor hover effects
-  document.querySelectorAll('a, button, .project-card').forEach(el => {
+  document.querySelectorAll('a, button, .project-card, .principle-card, .meta-item').forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.style.width  = '56px';
       ring.style.height = '56px';
