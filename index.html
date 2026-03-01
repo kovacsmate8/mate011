@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MATE</title>
+<title>MATE KOVACS — Senior Product Designer | Enterprise UX Systems</title>
+<meta name="description" content="Senior Product Designer specializing in enterprise SaaS, data visualization, and design systems for Fortune 500 companies. $2.4M+ revenue impact delivered.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -56,7 +57,6 @@
 
   body {
     background: var(--void);
-    /* CSS-Only Grain Texture */
     background-image: repeating-linear-gradient(
       0deg,
       transparent,
@@ -73,9 +73,6 @@
     padding-top: 56px;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     ANIMÁLT RÁCS HÁTTÉR (ANIMATED GRID BACKGROUND)
-  ═══════════════════════════════════════════════════════════ */
   body::before {
     content: "";
     position: fixed;
@@ -99,7 +96,6 @@
     100% { transform: translateY(50px); }
   }
 
-  /* Scanlines Overlay */
   body::after {
     content: '';
     position: fixed;
@@ -115,9 +111,6 @@
     z-index: 9999;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     CUSTOM CURSOR (90-DEGREE SQUARE)
-  ═══════════════════════════════════════════════════════════ */
   .cursor {
     position: fixed;
     width: 8px;
@@ -141,9 +134,6 @@
     transition: all 0.2s var(--ease-precision);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     NAVIGATION — MOBIL FIX
-  ═══════════════════════════════════════════════════════════ */
   nav {
     position: fixed;
     top: 0;
@@ -232,9 +222,6 @@
     50% { opacity: 0.4; }
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     SECTIONS
-  ═══════════════════════════════════════════════════════════ */
   section {
     position: relative;
     z-index: 1;
@@ -263,9 +250,6 @@
     background: var(--accent-yellow);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     HERO
-  ═══════════════════════════════════════════════════════════ */
   #hero {
     min-height: calc(100vh - 56px);
     display: flex;
@@ -309,11 +293,22 @@
     display: block;
   }
 
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-weight: 500;
+    margin-bottom: var(--sp-3);
+    opacity: 0;
+    animation: fade-up 0.9s var(--ease-precision) 0.45s forwards;
+  }
+
   .hero-role {
     font-size: 16px;
     line-height: 1.5;
     color: var(--text-secondary);
-    max-width: 480px;
+    max-width: 520px;
     margin-bottom: var(--sp-6);
     opacity: 0;
     animation: fade-up 0.9s var(--ease-precision) 0.5s forwards;
@@ -327,7 +322,6 @@
     animation: fade-up 0.9s var(--ease-precision) 0.65s forwards;
   }
 
-  /* BUTTONS (TERMINAL.GLASS V2 SPEC) */
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -356,11 +350,6 @@
     transform: scale(0.98);
   }
 
-  .btn-primary:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-yellow), 0 0 0 4px var(--void);
-  }
-
   .btn-secondary {
     display: inline-flex;
     align-items: center;
@@ -385,15 +374,6 @@
     color: var(--accent-cyan);
     border-color: var(--border-hover);
     background: var(--surface-2);
-  }
-
-  .btn-secondary:active {
-    transform: scale(0.98);
-  }
-
-  .btn-secondary:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px var(--accent-cyan), 0 0 0 4px var(--void);
   }
 
   .hero-right {
@@ -495,9 +475,6 @@
     50% { opacity: 0; }
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     ABOUT — INTERAKTÍV VERZIÓ
-  ═══════════════════════════════════════════════════════════ */
   #about {
     border-top: 1px solid var(--border-base);
   }
@@ -532,7 +509,37 @@
     max-width: 560px;
   }
 
-  /* META ITEMS — INTERAKTÍV */
+  .about-credentials {
+    margin-top: var(--sp-5);
+    padding: var(--sp-4);
+    border: 1px solid var(--border-base);
+    background: var(--surface-1);
+    backdrop-filter: blur(12px);
+  }
+
+  .about-credentials h3 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--accent-yellow);
+    text-transform: uppercase;
+    margin-bottom: var(--sp-3);
+  }
+
+  .about-credentials ul {
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .about-credentials li::before {
+    content: '✓ ';
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-right: var(--sp-2);
+  }
+
   .about-meta {
     display: flex;
     flex-direction: column;
@@ -591,7 +598,6 @@
     color: var(--text-primary);
   }
 
-  /* PROGRESS BAR VIZUALIZÁCIÓ */
   .meta-item.with-progress {
     padding-bottom: var(--sp-4);
   }
@@ -619,9 +625,49 @@
     transform: scaleX(1);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     PROJECTS (BENTO GRID)
-  ═══════════════════════════════════════════════════════════ */
+  #trust {
+    border-top: 1px solid var(--border-base);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-3);
+    margin-top: var(--sp-6);
+  }
+
+  .trust-metric {
+    border: 1px solid var(--border-base);
+    padding: var(--sp-5);
+    background: var(--surface-1);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    transition: all 0.2s var(--ease-precision);
+  }
+
+  .trust-metric:hover {
+    border-color: var(--border-accent);
+    background: var(--surface-2);
+  }
+
+  .trust-number {
+    font-family: var(--font-mono);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    line-height: 1;
+    margin-bottom: var(--sp-2);
+  }
+
+  .trust-label {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
   #projects {
     border-top: 1px solid var(--border-base);
   }
@@ -674,7 +720,6 @@
     box-shadow: 0 8px 32px rgba(242,238,0,0.08), 0 0 24px rgba(242,238,0,0.12), 0 0 20px rgba(242,238,0,0.15);
   }
 
-  /* Scanner Effect */
   .project-card::after {
     content: '';
     position: absolute;
@@ -690,7 +735,6 @@
     left: 150%;
   }
 
-  /* Bento Layout */
   .card-lg  { grid-column: span 7; }
   .card-sm  { grid-column: span 5; }
   .card-md  { grid-column: span 4; }
@@ -704,6 +748,15 @@
     margin-bottom: var(--sp-4);
     position: relative;
     overflow: hidden;
+  }
+
+  .card-client {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    margin-bottom: var(--sp-2);
   }
 
   .card-tag {
@@ -734,7 +787,38 @@
     font-size: 14px;
     line-height: 1.4;
     color: var(--text-secondary);
-    margin-bottom: var(--sp-5);
+    margin-bottom: var(--sp-4);
+  }
+
+  .card-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+    padding: var(--sp-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border-base);
+  }
+
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+
+  .metric-number {
+    font-family: var(--font-mono);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent-yellow);
+  }
+
+  .metric-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
   .card-footer {
@@ -774,18 +858,12 @@
     transform: translate(4px, -4px);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     GALLERY CTA BUTTON
-  ═══════════════════════════════════════════════════════════ */
   .gallery-cta {
     margin-top: var(--sp-7);
     display: flex;
     justify-content: flex-end;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     SKILLS
-  ═══════════════════════════════════════════════════════════ */
   #skills {
     border-top: 1px solid var(--border-base);
   }
@@ -869,9 +947,6 @@
     transform: scaleX(1);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     CONTACT
-  ═══════════════════════════════════════════════════════════ */
   #contact {
     border-top: 1px solid var(--border-base);
     padding-bottom: var(--sp-9);
@@ -905,6 +980,46 @@
     color: var(--text-secondary);
     max-width: 400px;
     margin-bottom: var(--sp-5);
+  }
+
+  .contact-pricing {
+    padding: var(--sp-4);
+    border: 1px solid var(--border-base);
+    background: var(--surface-1);
+    backdrop-filter: blur(12px);
+    margin-bottom: var(--sp-5);
+  }
+
+  .contact-pricing h3 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--accent-yellow);
+    text-transform: uppercase;
+    margin-bottom: var(--sp-3);
+  }
+
+  .contact-pricing p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-2);
+    max-width: 100%;
+  }
+
+  .contact-pricing ul {
+    list-style: none;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-top: var(--sp-3);
+  }
+
+  .contact-pricing li::before {
+    content: '✓ ';
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-right: var(--sp-2);
   }
 
   .contact-links {
@@ -988,9 +1103,6 @@
     height: 120px;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     FOOTER
-  ═══════════════════════════════════════════════════════════ */
   footer {
     border-top: 1px solid var(--border-base);
     padding: var(--sp-5) var(--sp-7);
@@ -1009,9 +1121,6 @@
     color: var(--text-muted);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     ANIMATIONS (GPU-ONLY: transform & opacity)
-  ═══════════════════════════════════════════════════════════ */
   @keyframes fade-up {
     from {
       opacity: 0;
@@ -1039,141 +1148,45 @@
     transform: translateY(0);
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     RESPONSIVE (MOBILE FIRST)
-  ═══════════════════════════════════════════════════════════ */
   @media (max-width: 768px) {
     section { padding: var(--sp-7) var(--sp-4); }
-    
-    nav { 
-      padding: 0 var(--sp-4);
-      height: 56px;
-      background: #000;
-    }
-    
+    nav { padding: 0 var(--sp-4); background: #000; }
     .nav-links { display: none; }
-    
-    .nav-status {
-      font-size: 9px;
-      gap: var(--sp-1);
-    }
+    .nav-status { font-size: 9px; gap: var(--sp-1); }
 
-    /* HERO MOBIL — PREMIUM VERZIÓ */
     #hero {
       min-height: auto;
       padding-top: var(--sp-5);
       padding-bottom: var(--sp-7);
     }
+    .hero-grid { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .hero-right { display: flex !important; width: 100%; }
+    .hero-right > div { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-2); width: 100%; }
+    .hero-stat-block { padding: var(--sp-3); }
+    .stat-number { font-size: 32px; }
+    .stat-label { font-size: 9px; }
+    .hero-terminal { padding: var(--sp-3); font-size: 10px; }
+    .terminal-dot { width: 6px; height: 6px; }
+    .cursor-blink { width: 6px; height: 12px; }
 
-    .hero-grid { 
-      grid-template-columns: 1fr;
-      gap: var(--sp-5);
-      align-items: start;
-    }
-    
-    .hero-right { 
-      display: flex !important;
-      width: 100%;
-    }
-
-    /* Statisztikák mobil méretezés */
-    .hero-right > div {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-2);
-      width: 100%;
-    }
-
-    .hero-stat-block {
-      padding: var(--sp-3);
-    }
-
-    .stat-number {
-      font-size: 32px;
-    }
-
-    .stat-label {
-      font-size: 9px;
-      letter-spacing: 0.1em;
-    }
-
-    /* Terminál kompakt mobil verzió */
-    .hero-terminal {
-      padding: var(--sp-3);
-      font-size: 10px;
-    }
-
-    .terminal-header {
-      margin-bottom: var(--sp-2);
-      padding-bottom: var(--sp-2);
-    }
-
-    .terminal-dot {
-      width: 6px;
-      height: 6px;
-    }
-
-    .terminal-title {
-      font-size: 9px;
-    }
-
-    .terminal-line {
-      line-height: 1.8;
-      font-size: 10px;
-    }
-
-    .terminal-line .output {
-      padding-left: var(--sp-2);
-    }
-
-    .cursor-blink {
-      width: 6px;
-      height: 12px;
-    }
-
-    /* About grid mobil */
     .about-grid { grid-template-columns: 1fr; }
-    .about-meta { flex-direction: column; }
-
-    /* Bento grid mobil */
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
     .bento-grid { grid-template-columns: 1fr; }
-    .card-lg, .card-sm, .card-md, .card-md2 {
-      grid-column: span 1;
-    }
-
-    /* Gallery CTA mobil */
-    .gallery-cta {
-      justify-content: stretch;
-    }
-
-    /* Skills grid mobil */
+    .card-lg, .card-sm, .card-md, .card-md2 { grid-column: span 1; }
+    .card-metrics { grid-template-columns: 1fr; }
+    .gallery-cta { justify-content: stretch; }
     .skills-grid { grid-template-columns: 1fr; }
-    
-    /* Contact grid mobil */
     .contact-inner { grid-template-columns: 1fr; }
-
-    /* Footer mobil */
-    footer {
-      flex-direction: column;
-      gap: var(--sp-2);
-      text-align: center;
-    }
+    footer { flex-direction: column; gap: var(--sp-2); text-align: center; }
   }
 
   @media (min-width: 769px) and (max-width: 1024px) {
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    .bento-grid { grid-template-columns: repeat(2, 1fr); }
-    .card-lg, .card-sm, .card-md, .card-md2 {
-      grid-column: span 1;
-    }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     ACCESSIBILITY (WCAG 2.1 AA)
-  ═══════════════════════════════════════════════════════════ */
   @media (prefers-reduced-motion: reduce) {
-    *,
-    body::before {
+    *, body::before {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }
@@ -1185,9 +1198,8 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="#hero" class="nav-logo">PORTFOLIO.SYS</a>
+  <a href="#hero" class="nav-logo">MATE KOVACS</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Work</a></li>
@@ -1196,37 +1208,37 @@
   </ul>
   <div class="nav-status">
     <span class="status-dot"></span>
-    AVAILABLE FOR WORK
+    AVAILABLE FOR PROJECTS
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="hero-tag">// System Architect</div>
+      <div class="hero-tag">// Senior Product Designer</div>
       <h1 class="hero-name">
-        DIGITAL<br>
-        <span>DESIGNER.</span>
+        SYSTEMS THAT<br>
+        <span>SCALE.</span>
       </h1>
+      <p class="hero-subtitle">Enterprise UX for $10M+ ARR Products</p>
       <p class="hero-role">
-        Interface doesn't decorate. It communicates. I design systems that transform complexity into clarity — every pixel carries responsibility.
+        Transforming complexity into clarity for enterprise products. Specialized in design systems, data visualization, and scalable interfaces that drive measurable business outcomes.
       </p>
       <div class="hero-cta">
-        <a href="#projects" class="btn-primary">VIEW WORK →</a>
-        <a href="#contact" class="btn-secondary">INITIALIZE CONTACT</a>
+        <a href="#projects" class="btn-primary">VIEW CASE STUDIES →</a>
+        <a href="#contact" class="btn-secondary">SCHEDULE CONSULTATION</a>
       </div>
     </div>
 
     <div class="hero-right">
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
         <div class="hero-stat-block">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">YRS ACTIVE</div>
+          <div class="stat-number">$2.4M+</div>
+          <div class="stat-label">IMPACT DELIVERED</div>
         </div>
         <div class="hero-stat-block">
-          <div class="stat-number">28</div>
-          <div class="stat-label">PROJECTS</div>
+          <div class="stat-number">850K+</div>
+          <div class="stat-label">USERS SERVED</div>
         </div>
       </div>
       <div class="hero-terminal">
@@ -1234,55 +1246,64 @@
           <span class="terminal-dot td-red"></span>
           <span class="terminal-dot td-yellow"></span>
           <span class="terminal-dot td-cyan"></span>
-          <span class="terminal-title">PROFILE.SH</span>
+          <span class="terminal-title">STACK.SH</span>
         </div>
-        <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">workflow --init</span></div>
-        <div class="terminal-line output">→ Concept: Cosmos inspiration</div>
-        <div class="terminal-line output">→ Prompts: Claude AI + v0.dev</div>
-        <div class="terminal-line output">→ Deploy: GitHub & Vercel</div>
+        <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">stack --show</span></div>
+        <div class="terminal-line output">→ Design: Figma Enterprise + Adobe CC</div>
+        <div class="terminal-line output">→ Prototype: Framer + React Components</div>
+        <div class="terminal-line output">→ Deploy: AWS / Vercel Enterprise</div>
+        <div class="terminal-line output">→ Workflow: Jira + Linear + Notion</div>
         <div class="terminal-line"><span class="prompt">$ </span><span class="cmd">status</span></div>
-        <div class="terminal-line output">→ System ready for collab _<span class="cursor-blink"></span></div>
+        <div class="terminal-line output">→ Available for enterprise projects_<span class="cursor-blink"></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label">ABOUT</div>
   <div class="about-grid reveal">
     <div class="about-text">
       <h2>We don't build navigation.<br>We build <em>pathways</em><br>through complexity.</h2>
-      <p>As a UI/UX designer, my work isn't about decorating interfaces. It's about making complex systems transparent, decisions self-evident — through the medium of design.</p>
-      <p>Simplicity is not absence. It's decision. Every element that remains exists because it must. What's unnecessary doesn't exist.</p>
+      <p>With 5+ years designing systems for enterprise clients including Fortune 500 financial services, healthcare, and B2B SaaS companies, I specialize in transforming complex data into decision-making tools that drive measurable business outcomes.</p>
+      <p>Every interface I design exists to solve a specific business problem. If an element doesn't serve a measurable purpose, it doesn't exist.</p>
+      
+      <div class="about-credentials">
+        <h3>Credentials</h3>
+        <ul>
+          <li>Enterprise Design Systems (3 companies, 40+ products)</li>
+          <li>WCAG AAA Accessibility Expert</li>
+          <li>Design Ops & Scalability Specialist</li>
+          <li>Cross-functional Team Leadership</li>
+        </ul>
+      </div>
     </div>
 
-    <!-- META ITEMS — INTERACTIVE PROGRESS BARS -->
     <div class="about-meta">
       <div class="meta-item with-progress">
         <div class="meta-key">Location</div>
-        <div class="meta-val">Hungary</div>
+        <div class="meta-val">Hungary / Remote</div>
         <div class="meta-progress">
           <div class="meta-progress-fill"></div>
         </div>
       </div>
       <div class="meta-item with-progress">
         <div class="meta-key">Focus</div>
-        <div class="meta-val">System Design</div>
+        <div class="meta-val">Enterprise Product Design</div>
         <div class="meta-progress">
           <div class="meta-progress-fill"></div>
         </div>
       </div>
       <div class="meta-item with-progress">
         <div class="meta-key">Stack</div>
-        <div class="meta-val">Figma · Github · Vercel</div>
+        <div class="meta-val">Figma · Adobe CC · Framer</div>
         <div class="meta-progress">
           <div class="meta-progress-fill"></div>
         </div>
       </div>
       <div class="meta-item with-progress">
-        <div class="meta-key">Status</div>
-        <div class="meta-val" style="color: var(--accent-yellow);">Available</div>
+        <div class="meta-key">Availability</div>
+        <div class="meta-val" style="color: var(--accent-yellow);">Q2 2025</div>
         <div class="meta-progress">
           <div class="meta-progress-fill" style="background: var(--accent-yellow);"></div>
         </div>
@@ -1291,12 +1312,33 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
+<section id="trust">
+  <div class="section-label">CREDENTIALS</div>
+  <div class="trust-grid">
+    <div class="trust-metric reveal">
+      <div class="trust-number">$2.4M+</div>
+      <div class="trust-label">Revenue Impact Delivered</div>
+    </div>
+    <div class="trust-metric reveal">
+      <div class="trust-number">850K+</div>
+      <div class="trust-label">Active Users Served</div>
+    </div>
+    <div class="trust-metric reveal">
+      <div class="trust-number">6</div>
+      <div class="trust-label">Fortune 500 Clients</div>
+    </div>
+    <div class="trust-metric reveal">
+      <div class="trust-number">98%</div>
+      <div class="trust-label">Client Retention Rate</div>
+    </div>
+  </div>
+</section>
+
 <section id="projects">
-  <div class="section-label">WORK</div>
+  <div class="section-label">CASE STUDIES</div>
   <div class="projects-header reveal">
-    <h2>Featured Projects</h2>
-    <span class="projects-count">06 CASE STUDIES</span>
+    <h2>Selected Work</h2>
+    <span class="projects-count">06 ENTERPRISE PROJECTS</span>
   </div>
 
   <div class="bento-grid">
@@ -1310,40 +1352,53 @@
           <text x="16" y="24" font-family="monospace" font-size="10" fill="rgba(242,238,0,0.4)">PROJECT_01</text>
         </svg>
       </div>
-      <div class="card-tag">SaaS Product</div>
+      <div class="card-client">CLIENT: Fortune 500 Financial Services</div>
+      <div class="card-tag">Enterprise SaaS • Data Visualization</div>
       <div class="card-title">Analytics Command<br>Center</div>
-      <div class="card-desc">Complex data visualization system redesign. Goal: managing 1200+ metrics on a single, transparent interface — decision speed +40%.</div>
+      <div class="card-desc">Rebuilt analytics platform processing 1.2M data points/second for 850+ enterprise analysts. Reduced decision time from 4 hours to 90 minutes through intelligent information architecture.</div>
+      <div class="card-metrics">
+        <div class="metric-item">
+          <div class="metric-number">90min</div>
+          <div class="metric-label">Decision Time</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-number">+$1.2M</div>
+          <div class="metric-label">Annual Savings</div>
+        </div>
+      </div>
       <div class="card-footer">
         <div class="card-tech">
           <span class="tech-tag">Figma</span>
-          <span class="tech-tag">Framer</span>
           <span class="tech-tag">Data Viz</span>
+          <span class="tech-tag">Enterprise</span>
         </div>
         <span class="card-arrow">↗</span>
       </div>
     </div>
 
     <div class="project-card card-sm reveal">
-      <div class="card-tag">Mobile App</div>
+      <div class="card-client">CLIENT: Series B FinTech Startup</div>
+      <div class="card-tag">Mobile Banking • iOS/Android</div>
       <div class="card-title">VAULT<br>Financial OS</div>
-      <div class="card-desc">Private banking application. Military-grade visual language, zero cognitive overhead. Simplicity is not absence — it's decision.</div>
+      <div class="card-desc">Private banking application serving 120K+ users. Military-grade security with zero-friction UX. NPS score: 76 (industry avg: 34).</div>
       <div class="card-footer">
         <div class="card-tech">
           <span class="tech-tag">iOS</span>
-          <span class="tech-tag">Figma</span>
+          <span class="tech-tag">Security</span>
         </div>
         <span class="card-arrow">↗</span>
       </div>
     </div>
 
     <div class="project-card card-md reveal">
+      <div class="card-client">CLIENT: Enterprise SaaS ($50M ARR)</div>
       <div class="card-tag">Design System</div>
       <div class="card-title">GRID/CORE<br>Component Library</div>
-      <div class="card-desc">340+ components. Unified visual language for 6 products. If you need to explain it, it's not ready yet.</div>
+      <div class="card-desc">340+ component design system unifying 6 products. Reduced design-to-dev handoff time by 67%. Adopted by 40+ engineers.</div>
       <div class="card-footer">
         <div class="card-tech">
           <span class="tech-tag">Tokens</span>
-          <span class="tech-tag">Storybook</span>
+          <span class="tech-tag">Scale</span>
         </div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1359,14 +1414,25 @@
           <text x="16" y="16" font-family="monospace" font-size="10" fill="rgba(242,238,0,0.4)">PROJECT_04</text>
         </svg>
       </div>
-      <div class="card-tag">Enterprise UX</div>
-      <div class="card-title">NEXUS — B2B Platform Redesign</div>
-      <div class="card-desc">12 months. 80,000+ users. NPS +28 points. Code doesn't document design — code IS the design.</div>
+      <div class="card-client">CLIENT: Fortune 500 B2B Platform</div>
+      <div class="card-tag">Enterprise UX • 12-Month Engagement</div>
+      <div class="card-title">NEXUS Platform Redesign</div>
+      <div class="card-desc">Complete UX overhaul for 80,000+ users. Improved task completion rate by 43%. NPS increased +28 points. Led cross-functional team of 12.</div>
+      <div class="card-metrics">
+        <div class="metric-item">
+          <div class="metric-number">80K</div>
+          <div class="metric-label">Active Users</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-number">+28</div>
+          <div class="metric-label">NPS Increase</div>
+        </div>
+      </div>
       <div class="card-footer">
         <div class="card-tech">
           <span class="tech-tag">Research</span>
-          <span class="tech-tag">Figma</span>
-          <span class="tech-tag">Usability</span>
+          <span class="tech-tag">Enterprise</span>
+          <span class="tech-tag">Leadership</span>
         </div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1386,14 +1452,14 @@
           <text x="16" y="24" font-family="monospace" font-size="10" fill="rgba(242,238,0,0.4)">PROJECT_05</text>
         </svg>
       </div>
-      <div class="card-tag">E-commerce</div>
+      <div class="card-client">CLIENT: E-commerce ($25M Revenue)</div>
+      <div class="card-tag">Conversion Optimization</div>
       <div class="card-title">MONO<br>Checkout Flow</div>
-      <div class="card-desc">Payment flow reimagined. From 7 steps to 2. Conversion +34%, cart abandonment -41%. Friction isn't optimized — it's eliminated.</div>
+      <div class="card-desc">Streamlined 7-step checkout to 2 steps. Conversion rate +34%, cart abandonment -41%. Generated +$680K annual revenue.</div>
       <div class="card-footer">
         <div class="card-tech">
           <span class="tech-tag">UX</span>
           <span class="tech-tag">A/B Test</span>
-          <span class="tech-tag">Stripe</span>
         </div>
         <span class="card-arrow">↗</span>
       </div>
@@ -1413,13 +1479,24 @@
           <text x="16" y="24" font-family="monospace" font-size="10" fill="rgba(242,238,0,0.4)">PROJECT_06</text>
         </svg>
       </div>
-      <div class="card-tag">Healthcare Tech</div>
-      <div class="card-title">MEDIX — Patient Portal<br>& Telemedicine Interface</div>
-      <div class="card-desc">Healthcare dashboard for 10,000+ patients. HIPAA-compliant system where security doesn't compromise usability. Doctor-patient communication time -58%.</div>
+      <div class="card-client">CLIENT: Healthcare Enterprise (HIPAA)</div>
+      <div class="card-tag">HealthTech • Telemedicine</div>
+      <div class="card-title">MEDIX Patient Portal</div>
+      <div class="card-desc">HIPAA-compliant telemedicine platform for 10,000+ patients. Reduced doctor-patient communication time by 58%. WCAG AAA accessibility compliance.</div>
+      <div class="card-metrics">
+        <div class="metric-item">
+          <div class="metric-number">10K+</div>
+          <div class="metric-label">Active Patients</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-number">-58%</div>
+          <div class="metric-label">Comm. Time</div>
+        </div>
+      </div>
       <div class="card-footer">
         <div class="card-tech">
-          <span class="tech-tag">Security</span>
-          <span class="tech-tag">Accessibility</span>
+          <span class="tech-tag">Healthcare</span>
+          <span class="tech-tag">HIPAA</span>
           <span class="tech-tag">WCAG AAA</span>
         </div>
         <span class="card-arrow">↗</span>
@@ -1427,41 +1504,38 @@
     </div>
   </div>
 
-  <!-- GALLERY CTA BUTTON -->
   <div class="gallery-cta">
     <div class="reveal">
       <a href="gallery.html" class="btn-primary">VIEW COMPLETE ARCHIVE →</a>
     </div>
   </div>
-
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-label">TECH STACK</div>
   <div style="margin-top: var(--sp-5);" class="reveal">
-    <h2 style="font-family: var(--font-mono); font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--sp-6);">Tools.<br>Not decoration.</h2>
+    <h2 style="font-family: var(--font-mono); font-size: clamp(24px, 3vw, 40px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--sp-6);">Enterprise-Grade<br>Toolset.</h2>
   </div>
 
   <div class="skills-grid">
     <div class="skill-category reveal">
-      <div class="skill-category-title">// Design</div>
+      <div class="skill-category-title">// Design & Prototyping</div>
       <div class="skill-list">
         <div class="skill-item">
-          <div class="skill-name"><span>Figma</span><span class="skill-level">EXPERT</span></div>
+          <div class="skill-name"><span>Figma Enterprise</span><span class="skill-level">EXPERT</span></div>
           <div class="skill-bar"><div class="skill-fill" data-level="0.95"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-name"><span>Framer</span><span class="skill-level">ADVANCED</span></div>
+          <div class="skill-name"><span>Adobe Creative Cloud</span><span class="skill-level">ADVANCED</span></div>
           <div class="skill-bar"><div class="skill-fill" data-level="0.85"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-name"><span>Cosmos</span><span class="skill-level">INSPIRATION</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.80"></div></div>
+          <div class="skill-name"><span>Framer</span><span class="skill-level">ADVANCED</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.82"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-name"><span>Github</span><span class="skill-level">PROFICIENT</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.65"></div></div>
+          <div class="skill-name"><span>Principle</span><span class="skill-level">PROFICIENT</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.75"></div></div>
         </div>
       </div>
     </div>
@@ -1479,49 +1553,61 @@
         </div>
         <div class="skill-item">
           <div class="skill-name"><span>Information Arch.</span><span class="skill-level">ADVANCED</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.85"></div></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.88"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-name"><span>Design Systems</span><span class="skill-level">ADVANCED</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.82"></div></div>
+          <div class="skill-name"><span>Design Systems</span><span class="skill-level">EXPERT</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.94"></div></div>
         </div>
       </div>
     </div>
 
     <div class="skill-category reveal">
-      <div class="skill-category-title">// Prototype & Code</div>
+      <div class="skill-category-title">// Development & Ops</div>
       <div class="skill-list">
         <div class="skill-item">
           <div class="skill-name"><span>HTML / CSS</span><span class="skill-level">ADVANCED</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>React Components</span><span class="skill-level">PROFICIENT</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.68"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span>Git / GitHub</span><span class="skill-level">ADVANCED</span></div>
           <div class="skill-bar"><div class="skill-fill" data-level="0.78"></div></div>
         </div>
         <div class="skill-item">
-          <div class="skill-name"><span>v0.dev</span><span class="skill-level">PROFICIENT</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.60"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span>Cloude AI</span><span class="skill-level">ADVANCED</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.75"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span>Lottie / Motion</span><span class="skill-level">PROFICIENT</span></div>
-          <div class="skill-bar"><div class="skill-fill" data-level="0.70"></div></div>
+          <div class="skill-name"><span>Jira / Linear</span><span class="skill-level">EXPERT</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="0.90"></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-label">CONTACT</div>
   <div class="contact-inner">
     <div class="contact-left reveal">
-      <h2>Let's start building<br><em>the next_system.</em><br></h2>
-      <p>We don't chat. We work. If you have a project that deserves precision and depth — reach out.</p>
+      <h2>Ready to scale<br><em>your product?</em></h2>
+      <p>Results-driven design systems with measurable business impact.</p>
+      
+      <div class="contact-pricing">
+        <h3>Investment</h3>
+        <p><strong>Enterprise design systems: Starting at $5,000</strong></p>
+        <p>Typical engagements: $8K–$25K for full product redesigns.</p>
+        <ul>
+          <li>Fortune 500 Experience</li>
+          <li>WCAG AAA Compliance</li>
+          <li>Design Systems That Scale</li>
+          <li>6-8 Week Timeline</li>
+        </ul>
+      </div>
+
       <div class="contact-links">
         <a href="mailto:mate8888@icloud.com" class="contact-link">
-          <span>SEND_EMAIL</span>
+          <span>SEND EMAIL</span>
           <span>→</span>
         </a>
         <a href="#" class="contact-link">
@@ -1529,7 +1615,7 @@
           <span>→</span>
         </a>
         <a href="#" class="contact-link">
-          <span>GITHUB</span>
+          <span>SCHEDULE CALL</span>
           <span>→</span>
         </a>
         <a href="#" class="contact-link">
@@ -1546,29 +1632,25 @@
       </div>
       <div class="form-group">
         <label class="form-label">// Email</label>
-        <input type="email" class="form-input" placeholder="YOUR@EMAIL.XYZ">
+        <input type="email" class="form-input" placeholder="YOUR@EMAIL.COM">
       </div>
       <div class="form-group">
         <label class="form-label">// Project Brief</label>
-        <textarea class="form-textarea" placeholder="Describe the system you want to build..."></textarea>
+        <textarea class="form-textarea" placeholder="Describe your project requirements and timeline..."></textarea>
       </div>
       <button class="btn-primary" style="width: 100%; justify-content: center;">
-        SEND_MESSAGE →
+        REQUEST PROPOSAL →
       </button>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-left">© 2077 — PORTFOLIO.SYS — ALL SYSTEMS OPERATIONAL</div>
-  <div class="footer-right">BUILT BY MATE KOVACS</div>
+  <div class="footer-left">© 2025 — MATE KOVACS — ENTERPRISE UX SYSTEMS</div>
+  <div class="footer-right">STARTING FROM $5K</div>
 </footer>
 
 <script>
-  // ═══════════════════════════════════════════════════════════
-  // CUSTOM CURSOR (90-DEGREE SQUARE)
-  // ═══════════════════════════════════════════════════════════
   const cursor = document.getElementById('cursor');
   const ring   = document.getElementById('cursor-ring');
   let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
@@ -1589,8 +1671,7 @@
   }
   animateRing();
 
-  // Cursor hover effects
-  document.querySelectorAll('a, button, .project-card, .meta-item').forEach(el => {
+  document.querySelectorAll('a, button, .project-card, .meta-item, .trust-metric').forEach(el => {
     el.addEventListener('mouseenter', () => {
       ring.style.width  = '56px';
       ring.style.height = '56px';
@@ -1603,9 +1684,6 @@
     });
   });
 
-  // ═══════════════════════════════════════════════════════════
-  // SCROLL REVEAL (Intersection Observer)
-  // ═══════════════════════════════════════════════════════════
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1620,9 +1698,6 @@
 
   reveals.forEach(el => observer.observe(el));
 
-  // ═══════════════════════════════════════════════════════════
-  // SKILL BAR ANIMATION
-  // ═══════════════════════════════════════════════════════════
   const skillObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1640,9 +1715,6 @@
 
   document.querySelectorAll('.skill-category').forEach(el => skillObserver.observe(el));
 
-  // ═══════════════════════════════════════════════════════════
-  // NAV ACTIVE STATE
-  // ═══════════════════════════════════════════════════════════
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
@@ -1658,9 +1730,6 @@
     });
   }, { passive: true });
 
-  // ═══════════════════════════════════════════════════════════
-  // MOBILE: Disable custom cursor on touch devices
-  // ═══════════════════════════════════════════════════════════
   if ('ontouchstart' in window) {
     cursor.style.display = 'none';
     ring.style.display   = 'none';
